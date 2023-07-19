@@ -2,7 +2,7 @@ var buttonColours = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
 var userClickedPattern = [];
 var level = 0 ; 
-
+var start = false
 // helper functions for animations and sound
 function playSound(color){
     var buttonSound = new Audio("sounds/"+color+".mp3");
@@ -37,8 +37,9 @@ $(".btn").click(function() {
 
 // starts the game by detecting use case of when a key is pressed thus starting the game
 $(document).keydown(function() {
-    if (level == 0){
+    if (start == false){
         nextSequence();
+        start = true;
     }
 })
 
@@ -72,5 +73,5 @@ function startOver(){
     level = 0;
     gamePattern = [];
     userClickedPattern = [];
-
+    start = false;
 }
